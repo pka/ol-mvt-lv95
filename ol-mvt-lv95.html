@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://openlayers.org/en/v3.20.0/css/ol.css" type="text/css">
     <script src="https://openlayers.org/en/v3.20.0/build/ol-debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js" type="text/javascript"></script>
+    <script src="https://rawgit.com/boundlessgeo/ol-mapbox-style/v0.0.14/dist/olms.js"></script>
     <style>
       .map {
         background: #f8f4f0;
@@ -49,31 +50,28 @@
         }))
       });
 
-      var style = new ol.style.Style({
-        stroke: new ol.style.Stroke({
-          color: '#FFFF33',
-          width: 3
-        })
-      });
-
-      var vtLayer = new ol.layer.VectorTile({
-        source: new ol.source.VectorTile({
-          format: new ol.format.MVT(),
-          tileGrid: tileGrid,
-          tilePixelRatio: 16,
-          url: location.origin+'/mvt/g1k16/{z}/{x}/{y}.pbf'
-        }),
-        style: style
-      });
-
       var map = new ol.Map({
-        layers: [wmtsLayer,vtLayer],
+        layers: [wmtsLayer],
         target: 'map',
         view: new ol.View({
           center: [2660000, 1190000],
           projection: projection,
           resolution: 500
         })
+      });
+
+      fetch('mvt/g1k16.style.json').then(function(response) {
+        response.json().then(function(glStyle) {
+          map.addLayer(new ol.layer.VectorTile({
+            source: new ol.source.VectorTile({
+              format: new ol.format.MVT(),
+              tileGrid: tileGrid,
+              tilePixelRatio: 16,
+              url: location.origin+'/mvt/g1k16/{z}/{x}/{y}.pbf'
+            }),
+            style: olms.getStyleFunction(glStyle, 'g1k16')
+          }));
+        });
       });
     </script>
   </body>

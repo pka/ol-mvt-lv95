@@ -1,1 +1,35 @@
-{"glyphs":"http://localhost:6767/fonts/{fontstack}/{range}.pbf","layers":[{"id":"background_","paint":{"background-color":"rgba(255, 255, 255, 1)"},"type":"background"},{"id":"g1k16","source":"g1k16","source-layer":"g1k16","type":"line"}],"metadata":{"mapbox:autocomposite":false,"mapbox:type":"template","maputnik:renderer":"mbgljs","openmaptiles:version":"3.x"},"name":"t-rex","sources":{"g1k16":{"type":"vector","url":"http://localhost:6767/g1k16.json"}},"version":8}
+{
+  "name": "t-rex",
+  "version": 8,
+  "metadata": {
+    "mapbox:autocomposite": false,
+    "mapbox:type": "template",
+    "maputnik:renderer": "mbgljs"
+  },
+  "glyphs": "http:\/\/localhost:6767\/fonts\/{fontstack}\/{range}.pbf",
+  "sources": {
+    "g1k16": {
+      "type": "vector",
+      "url": "http:\/\/localhost:6767\/g1k16.json"
+    }
+  },
+  "layers": [
+    {
+      "id": "background_",
+      "paint": {
+        "background-color": "rgba(255, 255, 255, 1)"
+      },
+      "type": "background"
+    },
+    {
+      "id": "g1k16",
+      "source": "g1k16",
+      "source-layer": "g1k16",
+      "type": "line",
+      "paint": {
+        "line-color": "rgba(255, 255, 51, 1)",
+        "line-width": 3
+      }
+    }
+  ]
+}
