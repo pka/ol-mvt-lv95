@@ -30,6 +30,15 @@
         "line-color": "rgba(255, 255, 51, 1)",
         "line-width": 3
       }
+    },
+    {
+      "id": "g1k16-fill",
+      "source": "g1k16",
+      "source-layer": "g1k16",
+      "type": "fill",
+      "paint": {
+        "fill-color": "rgba(255, 255, 51, 0.2)"
+      }
     }
   ]
 }
